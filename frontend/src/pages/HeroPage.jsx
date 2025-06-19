@@ -28,14 +28,12 @@ const HeroPage = () => {
   return (
     <>
       <Navbar />
-      <main className="relative bg-white/10 min-h-screen text-center px-4 py-12">
-        <div className="absolute top-1/2 left-4 transform -translate-y-1/2 flex flex-col items-center gap-4">
+      <main className="relative bg-white/10 max-h-screen text-center px-4 py-12">
+        <div className="hidden md:flex absolute top-1/2 left-4 transform -translate-y-1/2 flex-col items-center gap-4">
           {sideIcons.slice(0, 3).map((icon, index) => (
             <motion.div
               key={icon.name}
-              className={`flex flex-col items-center ${
-                index % 2 === 0 ? "ml-4" : "mr-4"
-              }`}
+              className="flex flex-col items-center"
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
               whileHover={{
@@ -49,14 +47,11 @@ const HeroPage = () => {
             </motion.div>
           ))}
         </div>
-
-        <div className="absolute top-1/2 right-4 transform -translate-y-1/2 flex flex-col items-center gap-4">
+        <div className="hidden md:flex absolute top-1/2 right-4 transform -translate-y-1/2 flex-col items-center gap-4">
           {sideIcons.slice(3).map((icon, index) => (
             <motion.div
               key={icon.name}
-              className={`flex flex-col items-center ${
-                index % 2 === 0 ? "mr-4" : "ml-4"
-              }`}
+              className="flex flex-col items-center"
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
               whileHover={{
@@ -70,58 +65,55 @@ const HeroPage = () => {
             </motion.div>
           ))}
         </div>
-
-        <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
-          Your new job, vacancies <br /> all over the world
+        <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
+          Your new job, vacancies <br className="hidden md:block" /> all over the world
         </h1>
-        <p className="text-gray-600 max-w-xl mx-auto mb-8">
-          The best place to discover & apply to the coolest startup jobs. More
-          than <strong>672800</strong> current vacancies from{" "}
-          <strong>17750</strong> sites available to you.
+        <p className="text-gray-600 max-w-md md:max-w-xl mx-auto mb-8 text-sm md:text-base">
+          The best place to discover & apply to the coolest startup jobs. More than{" "}
+          <strong>672800</strong> current vacancies from <strong>17750</strong> sites available to you.
         </p>
-        <div className="flex items-center justify-center bg-white border border-gray-300 rounded-full shadow-md max-w-xl mx-auto overflow-hidden">
+        <div className="flex items-center justify-center bg-white border border-gray-300 rounded-full shadow-md max-w-md md:max-w-xl mx-auto overflow-hidden">
           <input
             type="text"
             placeholder="Job title, Salary, or Companies..."
-            className="flex-1 px-6 py-4 text-gray-700 focus:outline-none"
+            className="flex-1 px-4 py-3 text-sm md:text-base text-gray-700 focus:outline-none"
           />
           <button
             className={clsx(
               colors.primary,
               colors.primaryHover,
-              "text-white px-6 py-3 rounded-full m-1 transition cursor-pointer"
+              "text-white px-4 md:px-6 py-2 md:py-3 rounded-full m-1 transition cursor-pointer text-sm md:text-base"
             )}
           >
             Explore Now
           </button>
         </div>
-        <div className="relative mt-12 flex justify-center">
+        <div className="relative mt-10 flex justify-center">
           <img
             src="/hero.png"
             alt="Team working"
-            className="w-[500px] h-auto"
+            className="w-72 md:w-[500px] h-auto"
           />
-          <span className="absolute top-8 left-[30%] bg-yellow-300 text-black px-3 py-1 rounded-full text-xs shadow-md">
+          <span className="absolute top-6 left-[25%] bg-yellow-300 text-black px-2 py-1 rounded-full text-[10px] md:text-xs shadow-md">
             Developer
           </span>
-          <span className="absolute top-20 left-[12%] bg-pink-400 text-white px-3 py-1 rounded-full text-xs shadow-md">
+          <span className="absolute top-16 left-[5%] bg-pink-400 text-white px-2 py-1 rounded-full text-[10px] md:text-xs shadow-md">
             UI/UX Designer
           </span>
-          <span className="absolute bottom-12 right-[20%] bg-green-400 text-white px-3 py-1 rounded-full text-xs shadow-md">
+          <span className="absolute bottom-8 right-[10%] bg-green-400 text-white px-2 py-1 rounded-full text-[10px] md:text-xs shadow-md">
             Engineer
           </span>
         </div>
-
-        <div className={clsx(colors.primary, "w-full py-4 mt-5")}>
-          <div className="max-w-7xl mx-auto flex justify-center items-center gap-6 flex-wrap">
+        <div className={clsx(colors.primary, "w-full py-4 mt-10")}>
+          <div className="max-w-6xl mx-auto flex justify-center items-center gap-4 md:gap-8 flex-wrap">
             {footerLogos.map(({ name, logo }) => (
-              <div key={name} className="flex items-center gap-3">
+              <div key={name} className="flex items-center gap-2 md:gap-3">
                 <img
                   src={logo}
                   alt={name}
-                  className="w-10 h-10 object-contain"
+                  className="w-8 h-8 md:w-10 md:h-10 object-contain"
                 />
-                <span className="text-white text-xs">{name}</span>
+                <span className="text-white text-xs md:text-sm capitalize">{name}</span>
               </div>
             ))}
           </div>
