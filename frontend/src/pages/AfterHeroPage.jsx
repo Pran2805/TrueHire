@@ -35,7 +35,7 @@ const AfterHeroPage = () => {
         We ensure your next step is a step forward. That's why we built a jobs marketplace that serves all kinds of professionals first.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl w-full cursor-pointer">
         {features.map((feature, idx) => {
           const Icon = feature.icon;
           return (
@@ -51,8 +51,8 @@ const AfterHeroPage = () => {
               <p className="text-xs sm:text-sm text-gray-600">{feature.desc}</p>
               <button
                 className={clsx(
-                  colors.primary,
-                  'text-white text-xs sm:text-sm px-4 py-2 rounded-md mt-2 hover:brightness-110'
+                  colors.bgColor,
+                  'text-black text-xs sm:text-sm px-4 py-2 rounded-md mt-2 hover:brightness-110'
                 )}
               >
                 Get Started &gt;
